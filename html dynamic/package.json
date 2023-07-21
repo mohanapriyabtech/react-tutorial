@@ -1,9 +1,12 @@
 {
   "dependencies": {
     "html-pdf": "^3.0.1",
+    "html-pdf-node": "^1.0.8",
+    "htmlparser2": "^9.0.0",
     "moment": "^2.29.4",
     "nodemailer": "^6.9.3",
     "pdf-lib": "^1.17.1",
+    "pdfkit": "^0.13.0",
     "puppeteer": "^5.5.0"
   },
   "name": "html-dynamic",
