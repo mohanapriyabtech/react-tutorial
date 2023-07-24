@@ -2,25 +2,17 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import styles from './App.css';
-import DisplayData from './DisplayData';
 
-
-const RegistrationForm = () => {
+const RegistrationForm = ({ setSubmittedData }) => {
   // States for registration
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [submittedData, setSubmittedData] = useState([]);
-
-
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
-
-  
 
   // Handling the name change
   const handleName = (e) => {
@@ -45,11 +37,10 @@ const RegistrationForm = () => {
     e.preventDefault();
     if (name === '' || email === '' || password === '') {
       setError(true);
-      toast.error('Please enter all the fields'); 
+      toast.error('Please enter all the fields');
     } else {
       setSubmitted(true);
       setError(false);
-   
 
       // Create a new object to store the data
       const formData = {
@@ -57,38 +48,21 @@ const RegistrationForm = () => {
         email: email,
         password: password,
       };
+      let user_list = []
+      user_list.push(formData)
 
       // Add the formData object to the submittedData array
-      setSubmittedData([...submittedData, formData]);
+      setSubmittedData((prevData) => [...prevData, formData]);
 
-      // // Clear the input fields after successful form submission
-      // setName('');
-      // setEmail('');
-      // setPassword('');
-        {/* Conditionally render the DisplayData component */}
-      {submittedData.length > 0 && <DisplayData submittedData={submittedData} />}
-      // toast.success(`User ${name} successfully registered!!`);
+      // Clear the input fields after successful form submission
+      setName('');
+      setEmail('');
+      setPassword('');
+
+      toast.success(`User ${name} successfully registered!!`);
       navigate('/login');
     }
   };
-
-//   // Showing success message
-//   const successMessage = () => {
-//     return (
-//       <div className="success" style={{ display: submitted ? '' : 'none' }}>
-//         <h1>User {name} successfully registered!!</h1>
-//       </div>
-//     );
-//   };
-
-//   // Showing error message if error is true
-//   const errorMessage = () => {
-//     return (
-//       <div className="error" style={{ display: error ? '' : 'none' }}>
-//         <h1>Please enter all the fields</h1>
-//       </div>
-//     );
-//   };
 
   return (
     <div className="form">
@@ -96,14 +70,7 @@ const RegistrationForm = () => {
         <h1>User Registration</h1>
       </div>
 
-      {/* Calling to the methods */}
-      {/* <div className="messages">
-        {errorMessage()}
-        {successMessage()}
-      </div> */}
-
       <form>
-        {/* Labels and inputs for form data */}
         <label className="label">Name</label>
         <input onChange={handleName} className="input" value={name} type="text" />
 
@@ -118,7 +85,6 @@ const RegistrationForm = () => {
         </button>
         <ToastContainer />
       </form>
-     
     </div>
   );
 };

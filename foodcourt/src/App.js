@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import RoutesConfig from './RouterConfig';
+import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 import './App.css';
+import Form from './Form'
+import Login from './Login'
 
 const App = () => {
   const [submittedData, setSubmittedData] = useState([]);
+  console.log(submittedData)
 
   return (
     <div className="App">
       <Router>
-        <RoutesConfig submittedData={submittedData} setSubmittedData={setSubmittedData} />
+        <Routes>
+          <Route path="/" element={<Form setSubmittedData={setSubmittedData} />} />
+          <Route path="/login" element={<Login setSubmittedData={setSubmittedData} />} />
+        </Routes>
       </Router>
     </div>
   );

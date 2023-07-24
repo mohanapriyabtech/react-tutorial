@@ -1,13 +1,22 @@
 {
   "dependencies": {
+    "axios": "^1.4.0",
+    "html-dom-to-pdf": "^1.0.2",
     "html-pdf": "^3.0.1",
     "html-pdf-node": "^1.0.8",
+    "html-pdf-node-ts": "^1.0.7",
+    "html-to-image": "^1.11.11",
     "htmlparser2": "^9.0.0",
+    "htmlto": "^1.1.2",
+    "jspdf": "^2.5.1",
+    "jspdf-html2canvas": "^1.4.9",
     "moment": "^2.29.4",
     "nodemailer": "^6.9.3",
     "pdf-lib": "^1.17.1",
     "pdfkit": "^0.13.0",
-    "puppeteer": "^5.5.0"
+    "pdfmake": "^0.2.7",
+    "puppeteer": "^5.5.0",
+    "wkhtmltopdf": "^0.4.0"
   },
   "name": "html-dynamic",
   "version": "1.0.0",
