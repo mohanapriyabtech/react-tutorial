@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const Login = ({SubmittedData}) => {
-  console.log(SubmittedData,"nnn")
+const Login = ({ submittedData }) => {
+  console.log(submittedData,"nnn")
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -19,14 +19,14 @@ const Login = ({SubmittedData}) => {
     e.preventDefault();
 
 
-    if (!Array.isArray(SubmittedData) || !SubmittedData) {
-      console.log(SubmittedData)
+    if (!Array.isArray(submittedData) || !submittedData) {
+      console.log(submittedData)
       alert('Error: Data is not properly initialized');
       return;
     }
-
-    // Check if the provided username and password match any user in the submittedData array
-    const user = SubmittedData.find((data) => data.name === username && data.password === password);
+    console.log(submittedData,"login")
+    // Check if the provided username and password match any user in the setSubmittedData array
+    const user = submittedData.find((data) => data.name === username && data.password === password);
 
     if (user) {
       setIsLoggedIn(true);

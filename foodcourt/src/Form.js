@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import Login from './Login';
+
 
 const RegistrationForm = ({ setSubmittedData }) => {
+
+  const [isRegistered, setIsRegistered] = useState(false);
   // States for registration
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
@@ -53,6 +58,7 @@ const RegistrationForm = ({ setSubmittedData }) => {
 
       // Add the formData object to the submittedData array
       setSubmittedData((prevData) => [...prevData, formData]);
+      console.log(setSubmittedData,"register")
 
       // Clear the input fields after successful form submission
       setName('');
@@ -83,6 +89,7 @@ const RegistrationForm = ({ setSubmittedData }) => {
         <button onClick={handleSubmit} className="btn" type="submit">
           Submit
         </button>
+        {/* {isRegistered && <Login setSubmittedData={setSubmittedData} />} */}
         <ToastContainer />
       </form>
     </div>
