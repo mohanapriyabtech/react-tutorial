@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "axios": "^1.4.0",
+    "html-conversion-node": "^1.0.0",
     "html-dom-to-pdf": "^1.0.2",
     "html-pdf": "^3.0.1",
     "html-pdf-node": "^1.0.8",
