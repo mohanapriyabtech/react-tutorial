@@ -4,7 +4,7 @@ import RegistrationForm from './RegisterForm';
 import LoginForm from './LoginForm';
 import ProductList from './ProductList';
 import CartList from './CartList';
-import EndPage from './End';
+import EndPage from './OrderMessage';
 
 
 const App = () => {
@@ -106,8 +106,8 @@ const App = () => {
         <Route path="/" element={<RegistrationForm registerUser={registerUser} />} />
         <Route path="/login" element={<LoginForm registeredUsers={registeredUsers} />} />
         <Route path="/product" element={<ProductList products={products} />} />
-        <Route path="/cartlist" element={<CartList />} />
-        <Route path="/end" element={<EndPage />} />
+        <Route path="/cart-list" element={<CartList />} />
+        <Route path="/success" element={<EndPage />} />
       </Routes>
     </Router>
   );

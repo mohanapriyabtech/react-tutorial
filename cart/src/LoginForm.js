@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './LoginForm.css'
 
 const LoginForm = ({ registeredUsers }) => {
-
-  console.log(registeredUsers, "login")
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -26,7 +25,7 @@ const LoginForm = ({ registeredUsers }) => {
 
     if (user) {
       alert('Login successful!');
-      navigate('/product')
+      navigate('/product');
       // Do something after successful login, like redirecting to the dashboard
     } else {
       alert('Invalid email or password');
@@ -37,25 +36,27 @@ const LoginForm = ({ registeredUsers }) => {
     <div className="form">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
+        <div className="input-box">
+          <label>Email</label>
+          <input
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleInputChange}
+          />
 
-        <label>Password</label>
-        <input
-          name="password"
-          type="password"
-          value={formData.password}
-          onChange={handleInputChange}
-        />
+          <label>Password</label>
+          <input
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={handleInputChange}
+          />
 
-        <button type="submit">Login</button>
+          <button type="submit">Login</button>
+        </div>
       </form>
-      <button onClick={() => navigate('/')}>{"< Back to registration"}</button>
+      <button onClick={() => navigate('/')}>{"Back to registration"}</button>
     </div>
   );
 };

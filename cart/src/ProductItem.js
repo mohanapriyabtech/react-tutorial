@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
-const ProductItem = ({ product }) => {
-//   const [count, setCount] = useState(0);
-const [isAddedToCart, setIsAddedToCart] = useState(false);
- 
-
+const ProductItem = ({ product, onAddToCart }) => {
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
   const handleAddToCart = () => {
-    // setCount((prevCount) => prevCount + 1);
-    setIsAddedToCart(true)
-    toast.success(`${product.name} Added to cart`);
-  
+    onAddToCart(product);
+    setIsAddedToCart(true);
+    toast.success(`${product.name} added to cart`);
   };
 
   return (
@@ -21,10 +15,11 @@ const [isAddedToCart, setIsAddedToCart] = useState(false);
       <img src={product.image} alt={product.name} />
       <h3>{product.name}</h3>
       <p>{product.price}</p>
-      {!isAddedToCart ? (
-        <button onClick={handleAddToCart}>Add to Cart</button>
+      {isAddedToCart ? (
+        <p>Product added to cart</p>
       ) : (
-        <p>Added to Cart</p>)}
+        <button onClick={handleAddToCart}>Add to Cart</button>
+      )}
     </div>
   );
 };

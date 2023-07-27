@@ -13,16 +13,16 @@ const ProductList = ({ products }) => {
 
   const handleAddToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
-    // navigate('/cart-list');
+    
+   
   };
 
   const handleSubmitCart = () => {
   
-    if (products.length > 0) {
-      console.log('Cart submitted:', cart);
+    if (cart.length > 0) {
+      // console.log('Cart submitted:', cart);
       toast.success('Cart submitted successfully!');
-     
-      navigate('/end', { state: cart });
+      navigate('/cart-list', { state: cart });
     } else {
       toast.error('Your cart is empty. Please add items before submitting.');
     }
@@ -38,7 +38,7 @@ const ProductList = ({ products }) => {
       <ToastContainer />
       {/* Submit button */}
       <div className="submit-button-container">
-      {products.length > 0 && (
+      {cart.length > 0 && (
         <button onClick={handleSubmitCart} className="submit-button">
           Submit Cart
         </button>

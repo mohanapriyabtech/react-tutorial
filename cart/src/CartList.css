@@ -1,0 +1,159 @@
+/* CartList.css */
+.cart-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .cart-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    gap: 20px;
+  }
+  
+  .item-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  .item-details {
+    flex: 1;
+  }
+  
+  .item-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .item-price {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .item-controls button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  
+  .item-count {
+    font-size: 18px;
+    font-weight: bold;
+    width: 30px;
+    text-align: center;
+  }
+  
+  .item-total {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+
+
+  .total-price-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .price-label {
+    font-weight: bold;
+    order: 1; /* Move the label to the right */
+    margin-left: 600px
+  }
+  
+  .total-price {
+    border: 3px solid #000;
+    padding: 5px 10px;
+    width: 100px;
+    background-color: blue;
+    color: #fff;
+    font-weight: bold;
+    order: 2; /* Move the total value to the left */
+  }
+
+/* Add this to your CSS file */
+.order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the top */
+    height: 100vh; /* Set the height to the full viewport height */
+    background-image: url("https://plus.unsplash.com/premium_photo-1679243792923-fe4631b234d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80");
+    background-size: cover; /* Cover the full container */
+    background-position: center; /* Center the image */
+  }
+  
+  .success {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background */
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  
+  
+
+  /* Responsive layout for smaller screens */
+  @media (max-width: 768px) {
+    .cart-item {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .item-image img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .item-controls {
+      gap: 5px;
+    }
+  }
+  
