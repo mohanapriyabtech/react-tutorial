@@ -1,17 +1,20 @@
+// Signup.js
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUser, setSuccessMessage, setErrorMessage, clearMessages } from './userSlice';
 import './Signup.css';
-import axios from 'axios'; 
+import axios from 'axios';
 
 const Signup = () => {
+  const dispatch = useDispatch();
+  const { successMessage, errorMessage } = useSelector((state) => state.user);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: '',
   });
-
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +26,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch(clearMessages());
 
     try {
       // Send a POST request to your API for user registration
@@ -32,12 +36,8 @@ const Signup = () => {
         password: formData.password,
       });
 
-    
       if (response.status === 201) {
-        setSuccessMessage('Registration successful!');
-        setErrorMessage('');
-
-        // Clear the form
+        dispatch(setSuccessMessage('Registration successful!'));
         setFormData({
           firstName: '',
           lastName: '',
@@ -46,8 +46,7 @@ const Signup = () => {
         });
       }
     } catch (error) {
-      setSuccessMessage('');
-      setErrorMessage('Registration failed. Please try again.');
+      dispatch(setErrorMessage('Registration failed. Please try again.'));
     }
   };
 
@@ -109,3 +108,6 @@ const Signup = () => {
 
 export default Signup;
 
+
+
+  
