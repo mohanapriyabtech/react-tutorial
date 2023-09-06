@@ -1,0 +1,16 @@
+{
+  "name": "a",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^6.6.6",
+    "web3": "^4.1.1",
+    "ws": "^8.13.0"
+  }
+}

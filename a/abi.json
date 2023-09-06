@@ -1,0 +1,931 @@
+[
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "previousAdmin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAdmin",
+          "type": "address"
+        }
+      ],
+      "name": "AdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "beacon",
+          "type": "address"
+        }
+      ],
+      "name": "BeaconUpgraded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "borrower",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "collectionAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct LibLoan.NFT[]",
+              "name": "nfts",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "string",
+              "name": "requestId",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "duration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "loanPaymentContract",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanPercentage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanId",
+              "type": "uint256"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct LibLoan.LoanRequest",
+          "name": "loan",
+          "type": "tuple"
+        }
+      ],
+      "name": "LoanAccepted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        }
+      ],
+      "name": "LoanCancelled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        }
+      ],
+      "name": "LoanClosed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "borrower",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "collectionAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct LibLoan.NFT[]",
+              "name": "nfts",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "duration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "loanPaymentContract",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanPercentage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanId",
+              "type": "uint256"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct LibLoan.Loan",
+          "name": "loan",
+          "type": "tuple"
+        }
+      ],
+      "name": "LoanCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "repaymentWithInterest",
+          "type": "uint256"
+        }
+      ],
+      "name": "LoanRepaid",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        }
+      ],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "CANCELLED_LOAN_CLASS",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "CLOSED_LOAN_CLASS",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "COMPLETED_LOAN_CLASS",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "NEW_LOAN_CLASS",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "REPAYED_LOAN_CLASS",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "loanRequests",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "borrower",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "lender",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "duration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "loanPaymentContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "loanAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "loanPercentage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "loanStatus",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "loans",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "borrower",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "duration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "loanPaymentContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "loanAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "loanPercentage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "previousOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newImplementation",
+          "type": "address"
+        }
+      ],
+      "name": "upgradeTo",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newImplementation",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "upgradeToAndCall",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function",
+      "payable": true
+    },
+    {
+      "inputs": [],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "borrower",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "collectionAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct LibLoan.NFT[]",
+              "name": "nfts",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "duration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "loanPaymentContract",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanPercentage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct LibLoan.Loan",
+          "name": "loan",
+          "type": "tuple"
+        }
+      ],
+      "name": "createLoan",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelLoan",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "borrower",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "collectionAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct LibLoan.NFT[]",
+              "name": "nfts",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "string",
+              "name": "requestId",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "duration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "loanPaymentContract",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanPercentage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct LibLoan.LoanRequest",
+          "name": "loanRequest",
+          "type": "tuple"
+        }
+      ],
+      "name": "acceptLoan",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "borrower",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "collectionAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenId",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct LibLoan.NFT[]",
+              "name": "nfts",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "string",
+              "name": "requestId",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "duration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "loanPaymentContract",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanPercentage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "loanId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct LibLoan.LoanRequest",
+          "name": "loanRequest",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "acceptCounterOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        }
+      ],
+      "name": "repayLoan",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        }
+      ],
+      "name": "forceClose",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "loanDurationInDays",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculateRepaymentWithInterest",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "loanId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getDurationInDays",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC721Received",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
