@@ -2,15 +2,18 @@ import React from 'react'
 function day(){
 
   const a = ["today","tomorrow"]
-  const int = Math.floor(Math.random()*3)
-  return int(a)
+  const int = Math.floor(Math.random()*2)
+  console.log("hello")
+  return a[int]
 }
 
 
 const App = () => {
 
   return (
-    <div>{day()}</div>
+    <div>
+      <p>{day()}</p>
+    </div>
   )
 }
 
