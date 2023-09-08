@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+h1 {
+    display: inline; /* Use inline-block to allow width and centering */
+
+}
+
+.element {
+    position: relative; /* Set the container to relative positioning */
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 50px;
+    /* display:flex;
+    list-style-type: none;
+    
+    justify-content: space-between;
+    background-color: rgba(84, 180, 204, 0.507);
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 0 rgba(84, 180, 204, 0.507);
+    width: 100%; 
+    box-sizing: border-box;
+     */
+}
+
+li {
+    float: left;
+    margin-right: 50px;  /*gap the list items*/
+}
+  
+li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+    justify-content: space-between;
+    background-color: rgba(84, 180, 204, 0.507);
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 0 rgba(84, 180, 204, 0.507);
+    width: 100%; 
+    box-sizing: border-box;
+    text-align: center;
+} 
+
+
+.dashboard-container {
+    background-image: url('/home/mohana/Downloads/photo-1513542789411-b6a5d4f31634.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+}
+
+.vertical-navbar {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    /* background-color: rgba(255, 254, 254, 0.541); */
+    width: 100%;
+}
+
+.vertical-navbar li a {
+    color: black;
+}
+
+
+.vertical-navbar li a:hover{
+    color: white;
+}
+
+header {
+    
+    text-align: center;
+    padding: 20px 0;
+    margin: 20px; /* Add margin to separate it from other content */
+    backdrop-filter: blur(10px); /* Apply a blur effect for the glass effect */
+    
+}
+
+/* Style the header sentence */
+.header-sentence {
+    background-color: transparent;
+    font-family: "Comic Sans MS", cursive; /* Choose a cute font */
+    font-size: 36px; /* Increase font size for a cute look */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px; /* Add some space below the sentence */
+    color: #4b4eec;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+    
+}

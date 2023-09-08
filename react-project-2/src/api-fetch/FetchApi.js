@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 
 const FetchApi = () => {
   const [data, setData] = useState([]);
-  const [click , setClick] = useState(0)
+  const [click , setClick] = useState(0);
   const [newItem, setNewItem] = useState('');
   const [editingIndex, setEditingIndex] = useState(-1);
-  const [showList, setShowList] = useState(true);
+  const [showList, setShowList] = useState(false); // Initialize with false
 
   useEffect(() => {
+    
     let apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
     if (click === 2) {
-        apiUrl = 'https://jsonplaceholder.typicode.com/users';
+      apiUrl = 'https://jsonplaceholder.typicode.com/users';
     }
 
     fetch(apiUrl)
@@ -22,12 +23,13 @@ const FetchApi = () => {
         return response.json();
       })
       .then((responseData) => {
+        console.log(responseData,"res")
         setData(responseData);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }, [click]);
 
   const handleAddItem = () => {
     if (newItem) {
@@ -52,6 +54,7 @@ const FetchApi = () => {
     updatedData.splice(index, 1);
     setData(updatedData);
   };
+
   const handleClickPost = () => {
     setClick(1);
     setShowList(true); 
@@ -59,19 +62,52 @@ const FetchApi = () => {
 
   const handleClickUsers = () => {
     setClick(2);
-    setShowList(false); 
+    setShowList(true); 
   };
+
+//   return (
+//     <div>
+//       <div>
+//         <button style={{ display: 'inline' }} onClick={handleClickPost}>
+//           Posts
+//         </button>
+//         <button style={{ display: 'inline' }} onClick={handleClickUsers}>
+//           Users
+//         </button>
+//       </div>
+
+//       {showList && ( // Use showList to conditionally render the table
+//         <div>
+//           <table border="2" style={{ borderCollapse: 'collapse' }}>
+//             {/* Rest of your table code */}
+//           </table>
+
+//           <div>
+//             <input
+//               type="text"
+//               placeholder="New Item"
+//               value={newItem}
+//               onChange={(e) => setNewItem(e.target.value)}
+//             />
+//             <button onClick={handleAddItem}>Add</button>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default FetchApi;
+
 
 
   return (
     
     <div>
-    {!showList && (
         <div>
-            <button style={{display : 'inline'}} onClick = {() => handleClickPost}>Posts</button>
-            <button style={{display : 'inline'}} onClick = {() => handleClickUsers}>Users</button>
+            <button style={{display : 'inline'}} onClick = {handleClickPost}>Posts</button>
+            <button style={{display : 'inline'}} onClick = {handleClickUsers}>Users</button>
         </div>
-    )}
 
     {showList && (
     <div>
