@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const FetchApi = () => {
   const [data, setData] = useState([]);
-  const [click , setClick] = useState(0);
+
+  const [click , setClick] = useState(false);
   const [newItem, setNewItem] = useState('');
   const [editingIndex, setEditingIndex] = useState(-1);
+
   const [showList, setShowList] = useState(false); // Initialize with false
 
   useEffect(() => {
@@ -105,11 +107,11 @@ const FetchApi = () => {
     
     <div>
         <div>
-            <button style={{display : 'inline'}} onClick = {handleClickPost}>Posts</button>
+            <button style={{display : 'inline'}} onClick = {()=>setClick((pre)=>!pre)}>Posts</button>
             <button style={{display : 'inline'}} onClick = {handleClickUsers}>Users</button>
         </div>
 
-    {showList && (
+    {click && (
     <div>
       <table border="2" style= {{ borderCollapse: "collapse" }}>
         <thead>
